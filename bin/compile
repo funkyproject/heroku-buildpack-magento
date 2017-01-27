@@ -28,6 +28,7 @@ unset GIT_DIR
 
 cd $build_dir
 
+
 export_env_dir "$env_dir" '^COMPOSER$'
 if [[ -n ${COMPOSER:-} ]]; then
     status "Using '$COMPOSER' (from "'$COMPOSER env var) for installation.'
@@ -300,3 +301,18 @@ install_newrelic_userini
 # done with platform installs; restore COMPOSER from previous value
 export COMPOSER="$COMPOSER_bak"
 unset COMPOSER_bak
+
+
+
+
+
+
+status "Installing magerun..."
+
+curl -O https://files.magerun.net/n98-magerun.phar
+chmod +x ./n98-magerun.phar
+
+status "Clearing cache with magerun..."
+./n98-magerun.phar cache:clean
+
+
