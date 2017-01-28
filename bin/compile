@@ -312,7 +312,11 @@ status "Installing magerun..."
 curl -O https://files.magerun.net/n98-magerun.phar
 chmod +x ./n98-magerun.phar
 
-status "Clearing cache with magerun..."
+status "Clearing Magento cache with magerun..."
 ./n98-magerun.phar cache:clean
+
+status "Running Magento module migration scripts (database migrations)..."
+./n98-magerun.phar sys:setup:run
+
 
 
