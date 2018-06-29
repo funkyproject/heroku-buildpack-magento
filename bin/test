@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# bin/test-compile <build-dir> <cache-dir> <env-dir>
+
+# fail hard
+set -o pipefail
+# fail harder
+set -eu
+
+htdocs/vendor/bin/phpunit -c htdocs/dev/tests/unit/phpunit.xml.dist
